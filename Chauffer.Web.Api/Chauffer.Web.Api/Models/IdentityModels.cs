@@ -3,6 +3,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Data.Entity.Infrastructure;
+using System;
 
 namespace Chauffer.Web.Api.Models
 {
@@ -18,7 +22,7 @@ namespace Chauffer.Web.Api.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IChaufferDbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -29,5 +33,55 @@ namespace Chauffer.Web.Api.Models
         {
             return new ApplicationDbContext();
         }
+
+        public IDbSet<Driver> Dirvers { get; set; }
+        public IDbSet<Customer> Customers { get; set; }
+        public IDbSet<Booking> Bookings { get; set; }
+        public IDbSet<Stop> Stops { get; set; }
+
+        public void SetDeleted(object entity)
+        {
+            Entry(entity).State = EntityState.Deleted;
+        }
+
+        public void SetUpdated(object entity)
+        {
+            Entry(entity).State = EntityState.Modified;
+        }
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+
+            catch (DbEntityValidationException ex)
+            {
+                throw ex;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw ex;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+
+
+    public interface IChaufferDbContext
+    {
+        IDbSet<Driver> Dirvers { get; set; }
+        IDbSet<Customer> Customers { get; set; }
+        IDbSet<Booking> Bookings { get; set; }
+        IDbSet<Stop> Stops { get; set; }
+
+        int SaveChanges();
+        Task<int> SaveChangesAsync();
+        void SetDeleted(object entity);
+        void SetUpdated(object entity);
     }
 }

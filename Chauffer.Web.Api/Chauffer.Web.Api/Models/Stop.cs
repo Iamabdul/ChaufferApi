@@ -1,6 +1,6 @@
 ﻿namespace Chauffer.Web.Api.Models
 {
-    public class Stops
+    public class Stop
     {
         public string StopId { get; set; }
         public string BookingId { get; set; }
