@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using Chauffer.Web.Api.Models;
 using Chauffer.Web.Api.Providers;
 using Chauffer.Web.Api.Results;
+using Chauffer.Web.Api.Commands;
 
 namespace Chauffer.Web.Api.Controllers
 {
@@ -23,6 +24,7 @@ namespace Chauffer.Web.Api.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
+        private ICreateCustomerCommand createCustomerCommand;
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
@@ -31,10 +33,12 @@ namespace Chauffer.Web.Api.Controllers
         }
 
         public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat,
+            ICreateCustomerCommand createCustomerCommand)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
+            this.createCustomerCommand = createCustomerCommand;
         }
 
         public ApplicationUserManager UserManager
@@ -327,7 +331,6 @@ namespace Chauffer.Web.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
@@ -336,6 +339,8 @@ namespace Chauffer.Web.Api.Controllers
             {
                 return GetErrorResult(result);
             }
+
+            await createCustomerCommand.Execute(model);
 
             return Ok();
         }
