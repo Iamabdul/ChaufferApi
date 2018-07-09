@@ -234,10 +234,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Commands\CreateBookingCommand.cs" />
     <Compile Include="Commands\CreateCustomerCommand.cs" />
+    <Compile Include="Commands\EditBookingCommand.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Exceptions\BookingNotFoundException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -254,10 +257,15 @@
     <Compile Include="Migrations\201806301131207_AddedInitialClasses1.Designer.cs">
       <DependentUpon>201806301131207_AddedInitialClasses1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807091800460_AddedCancelledDate.cs" />
+    <Compile Include="Migrations\201807091800460_AddedCancelledDate.Designer.cs">
+      <DependentUpon>201807091800460_AddedCancelledDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\BookingBindingModel.cs" />
     <Compile Include="Models\CarType.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Driver.cs" />
@@ -353,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806301131207_AddedInitialClasses1.resx">
       <DependentUpon>201806301131207_AddedInitialClasses1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091800460_AddedCancelledDate.resx">
+      <DependentUpon>201807091800460_AddedCancelledDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

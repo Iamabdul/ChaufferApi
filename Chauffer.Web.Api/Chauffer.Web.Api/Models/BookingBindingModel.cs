@@ -2,7 +2,7 @@
 
 namespace Chauffer.Web.Api.Models
 {
-    public class Booking
+    public class BookingBindingModel
     {
         public string BookingId { get; set; }
         public string CustomerId { get; set; }
@@ -15,6 +15,5 @@ namespace Chauffer.Web.Api.Models
         public DateTime? CompletedDate { get; set; }
         public JobType? JobType { get; set; }
         public string ExtraInformation { get; set; }
-        public DateTime? CancelledDate { get; set; }
     }
 }
