@@ -12,5 +12,6 @@
         public string LiscenceNumber { get; set; }
         public CarType CarType { get; set; }
         public string CarDetails { get; set; }
+        public bool IsActive { get; set; }
     }
 }

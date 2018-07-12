@@ -31,6 +31,8 @@ namespace Chauffer.Web.Api.Commands
 
             context.Bookings.Add(newBooking);
 
+            await context.SaveChangesAsync();
+
             return newBooking;
         }
     }

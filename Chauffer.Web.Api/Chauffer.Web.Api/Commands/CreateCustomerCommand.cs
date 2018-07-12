@@ -28,6 +28,7 @@ namespace Chauffer.Web.Api.Commands
             };
 
             context.Customers.Add(newCustomer);
+            await context.SaveChangesAsync();
         }
     }
 

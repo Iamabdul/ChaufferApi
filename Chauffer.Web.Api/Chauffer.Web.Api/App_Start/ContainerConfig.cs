@@ -71,6 +71,11 @@ namespace Chauffer.Web.Api.App_Start
         private static void BindCommands(Container container)
         {
             container.Register<ICreateCustomerCommand, CreateCustomerCommand>(Lifestyle.Scoped);
+            container.Register<ICreateBookingCommand, CreateBookingCommand>(Lifestyle.Scoped);
+            container.Register<IEditBookingCommand, EditBookingCommand>(Lifestyle.Scoped);
+            container.Register<ICancelBookingCommand, CancelBookingCommand>(Lifestyle.Scoped);
+            container.Register<ICreateDriverCommand, CreateDriverCommand>(Lifestyle.Scoped);
+            container.Register<IEditDriverCommand, EditDriverCommand>(Lifestyle.Scoped);
         }
 
         public interface IOwinContextAccessor
