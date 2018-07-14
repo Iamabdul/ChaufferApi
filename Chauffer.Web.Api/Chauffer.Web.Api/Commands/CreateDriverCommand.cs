@@ -23,7 +23,7 @@ namespace Chauffer.Web.Api.Commands
                 PreferredName = model.PreferredName,
                 PostCode = model.PostCode,
                 PhoneNumber = model.PhoneNumber,
-                LiscenceNumber = model.LiscenceNumber,
+                LicenceNumber = model.LicenceNumber,
                 CarDetails = model.CarDetails,
                 CarType = model.CarType,
                 IsActive = true

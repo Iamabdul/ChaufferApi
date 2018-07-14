@@ -26,7 +26,7 @@ namespace Chauffer.Web.Api.Commands
             driver.PreferredName = model.PreferredName;
             driver.PostCode = model.PostCode;
             driver.PhoneNumber = model.PhoneNumber;
-            driver.LiscenceNumber = model.LiscenceNumber;
+            driver.LicenceNumber = model.LicenceNumber;
             driver.CarDetails = model.CarDetails;
             driver.CarType = model.CarType;
             driver.IsActive = model.IsActive;

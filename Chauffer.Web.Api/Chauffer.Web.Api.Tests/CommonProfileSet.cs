@@ -1,4 +1,5 @@
 ﻿using Chauffer.Web.Api.Models;
+using System;
 
 namespace Chauffer.Web.Api.Tests
 {
@@ -17,6 +18,39 @@ namespace Chauffer.Web.Api.Tests
             PostCode = "123rdf",
             ExtraInformation = "extra info",
             Email = "email@email.email"
+        };
+
+        public static Driver commonDriver { get; } = new Driver
+        {
+            DriverId = "DriverID",
+            FirstName = "DriverFirstName",
+            LastName = "DriverLastName",
+            PreferredName = "DriverPrefferedName",
+            Address = "DriverAddress",
+            PostCode = "DriverPostCode",
+            PhoneNumber = new PhoneNumber
+            {
+                MobilePhone = "DriverMobilePhone"
+            },
+            CarDetails = "DriverDetails",
+            CarType = CarType.Luxury,
+            LicenceNumber = "DriverLiscenceNumber",
+            IsActive = true
+        };
+
+        public static BookingBindingModel bookingBindingModel { get; } = new BookingBindingModel
+        {
+            BookingId = "NewBookingID",
+            CustomerId = "NewBookingCustomerID",
+            DriverId = "NewBookingDriverID",
+            CreatedDate = DateTime.UtcNow,
+            StartAddress = "NewBookingStartAddress",
+            StartPostCode = "NewBookingStartPostCode",
+            EndAddress = "NewBookingEndAddress",
+            EndPostCode = "NewBookingEndPostCode",
+            CompletedDate = DateTime.UtcNow.AddHours(4),
+            JobType = JobType.AsDirected,
+            ExtraInformation = "NewBookingExtraInformation"
         };
     }
 }
