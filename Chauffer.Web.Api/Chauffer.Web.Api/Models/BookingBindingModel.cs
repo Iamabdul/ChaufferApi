@@ -12,6 +12,7 @@ namespace Chauffer.Web.Api.Models
         public string EndAddress { get; set; }
         public string EndPostCode { get; set; }
         public DateTime CreatedDate { get; set; }
+        public DateTime StartDate { get; set; }
         public DateTime? CompletedDate { get; set; }
         public JobType? JobType { get; set; }
         public string ExtraInformation { get; set; }

@@ -20,6 +20,7 @@ namespace Chauffer.Web.Api.Commands
                 CustomerId = model.CustomerId,
                 DriverId = model.DriverId,
                 CreatedDate = DateTime.UtcNow.AddHours(1),
+                StartDate = model.StartDate,
                 StartAddress = model.StartAddress,
                 StartPostCode = model.StartPostCode,
                 EndAddress = model.EndAddress,
