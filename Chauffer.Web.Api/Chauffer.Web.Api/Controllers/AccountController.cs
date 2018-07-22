@@ -17,6 +17,8 @@ using Chauffer.Web.Api.Models;
 using Chauffer.Web.Api.Providers;
 using Chauffer.Web.Api.Results;
 using Chauffer.Web.Api.Commands;
+using static Chauffer.Web.Api.App_Start.ContainerConfig;
+using Chauffer.Web.Api.Managers;
 
 namespace Chauffer.Web.Api.Controllers
 {
@@ -24,29 +26,25 @@ namespace Chauffer.Web.Api.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private ICreateCustomerCommand createCustomerCommand;
         private const string LocalLoginProvider = "Local";
-        private ApplicationUserManager _userManager;
+        private EnhancedApplicationUserManager _userManager;
+        private readonly IOwinContextAccessor _owinContext;
+        private readonly IChaufferDbContext context;
+        private readonly ICreateCustomerCommand createCustomerCommand;
 
-        public AccountController()
-        {
-        }
-
-        public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat,
+        public AccountController(EnhancedApplicationUserManager userManager,
+            IOwinContextAccessor owinContext,
+            IChaufferDbContext _context,
             ICreateCustomerCommand createCustomerCommand)
         {
             UserManager = userManager;
-            AccessTokenFormat = accessTokenFormat;
-            this.createCustomerCommand = createCustomerCommand;
+            _owinContext = owinContext;
+            context = _context;
         }
 
-        public ApplicationUserManager UserManager
+        public EnhancedApplicationUserManager UserManager
         {
-            get
-            {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
+            get => _userManager ?? Request.GetOwinContext().GetUserManager<EnhancedApplicationUserManager>();
             private set
             {
                 _userManager = value;

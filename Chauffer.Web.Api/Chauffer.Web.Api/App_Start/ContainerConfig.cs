@@ -76,6 +76,7 @@ namespace Chauffer.Web.Api.App_Start
             container.Register<ICancelBookingCommand, CancelBookingCommand>(Lifestyle.Scoped);
             container.Register<ICreateDriverCommand, CreateDriverCommand>(Lifestyle.Scoped);
             container.Register<IEditDriverCommand, EditDriverCommand>(Lifestyle.Scoped);
+            container.Register<ICreateStopCommand, CreateStopCommand>(Lifestyle.Scoped);
         }
 
         public interface IOwinContextAccessor

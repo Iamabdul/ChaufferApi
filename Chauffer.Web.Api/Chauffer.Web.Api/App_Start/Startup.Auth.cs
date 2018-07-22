@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Chauffer.Web.Api.Providers;
 using Chauffer.Web.Api.Models;
+using Chauffer.Web.Api.Managers;
 
 namespace Chauffer.Web.Api
 {
@@ -21,14 +22,13 @@ namespace Chauffer.Web.Api
 
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
-        {
+        { 
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-
-            // Enable the application to use a cookie to store information for the signed in user
-            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-            app.UseCookieAuthentication(new CookieAuthenticationOptions());
+			app.CreatePerOwinContext<EnhancedApplicationUserManager>(EnhancedApplicationUserManager.Create);
+			// Enable the application to use a cookie to store information for the signed in user
+			// and to use a cookie to temporarily store information about a user logging in with a third party login provider
+			app.UseCookieAuthentication(new CookieAuthenticationOptions());
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Configure the application for OAuth based flow
