@@ -14,7 +14,7 @@ namespace Chauffer.Web.Api.Commands
             this.context = context;
         }
 
-        public async Task Execute(StopModel model)
+        public async Task Execute(StopBindingModel model)
         {
             var booking = context.Bookings.FirstOrDefault(b => b.BookingId == model.BookingId);
 
@@ -38,6 +38,6 @@ namespace Chauffer.Web.Api.Commands
 
     public interface ICreateStopCommand
     {
-        Task Execute(StopModel model);
+        Task Execute(StopBindingModel model);
     }
 }

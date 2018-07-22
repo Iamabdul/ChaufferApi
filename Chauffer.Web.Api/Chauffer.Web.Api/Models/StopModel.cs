@@ -1,6 +1,6 @@
 ﻿namespace Chauffer.Web.Api.Models
 {
-    public class StopModel
+    public class StopBindingModel
     {
         public string BookingId { get; set; }
         public StopReason Reason { get; set; }

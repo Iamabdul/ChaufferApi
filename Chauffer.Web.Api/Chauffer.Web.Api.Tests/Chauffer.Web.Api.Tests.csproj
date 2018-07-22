@@ -135,6 +135,7 @@
     <Compile Include="Commands\CreateBookingCommandTests.cs" />
     <Compile Include="Commands\CreateCustomerCommandTests.cs" />
     <Compile Include="Commands\CreateDriverCommandTests.cs" />
+    <Compile Include="Commands\CreateStopCommandTests.cs" />
     <Compile Include="CommonProfileSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />

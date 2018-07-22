@@ -38,6 +38,20 @@ namespace Chauffer.Web.Api.Tests
             IsActive = true
         };
 
+        public static Booking commonBooking { get; } = new Booking
+        {
+            BookingId = "NewBookingID",
+            CustomerId = "NewBookingCustomerID",
+            DriverId = "NewBookingDriverID",
+            CreatedDate = DateTime.UtcNow,
+            StartAddress = "NewBookingStartAddress",
+            StartPostCode = "NewBookingStartPostCode",
+            EndAddress = "NewBookingEndAddress",
+            EndPostCode = "NewBookingEndPostCode",
+            CompletedDate = DateTime.UtcNow.AddHours(4),
+            JobType = JobType.AsDirected,
+            ExtraInformation = "NewBookingExtraInformation"
+        };
         public static BookingBindingModel bookingBindingModel { get; } = new BookingBindingModel
         {
             BookingId = "NewBookingID",
@@ -51,6 +65,14 @@ namespace Chauffer.Web.Api.Tests
             CompletedDate = DateTime.UtcNow.AddHours(4),
             JobType = JobType.AsDirected,
             ExtraInformation = "NewBookingExtraInformation"
+        };
+
+        public static StopBindingModel stopBindingModel { get; } = new StopBindingModel
+        {
+            Address = "NewStopAddress",
+            BookingId = "NewBookingID",
+            PostCode = "NewStopAddress",
+            Reason = StopReason.Standard
         };
     }
 }
