@@ -238,6 +238,7 @@
     <Compile Include="Commands\CreateBookingCommand.cs" />
     <Compile Include="Commands\CreateCustomerCommand.cs" />
     <Compile Include="Commands\CreateDriverCommand.cs" />
+    <Compile Include="Commands\CreateStopCommand.cs" />
     <Compile Include="Commands\EditBookingCommand.cs" />
     <Compile Include="Commands\EditDriverCommand.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -278,6 +279,18 @@
     <Compile Include="Migrations\201807150110293_Added_StartDate.Designer.cs">
       <DependentUpon>201807150110293_Added_StartDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807221953070_Added_Charge.cs" />
+    <Compile Include="Migrations\201807221953070_Added_Charge.Designer.cs">
+      <DependentUpon>201807221953070_Added_Charge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807222002073_Added_StopCharge.cs" />
+    <Compile Include="Migrations\201807222002073_Added_StopCharge.Designer.cs">
+      <DependentUpon>201807222002073_Added_StopCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807222004453_Edited_TotalCharge.cs" />
+    <Compile Include="Migrations\201807222004453_Edited_TotalCharge.Designer.cs">
+      <DependentUpon>201807222004453_Edited_TotalCharge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -285,12 +298,14 @@
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\BookingBindingModel.cs" />
     <Compile Include="Models\CarType.cs" />
+    <Compile Include="Models\Charge.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobType.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\Stop.cs" />
+    <Compile Include="Models\StopModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -391,6 +406,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807150110293_Added_StartDate.resx">
       <DependentUpon>201807150110293_Added_StartDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807221953070_Added_Charge.resx">
+      <DependentUpon>201807221953070_Added_Charge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807222002073_Added_StopCharge.resx">
+      <DependentUpon>201807222002073_Added_StopCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807222004453_Edited_TotalCharge.resx">
+      <DependentUpon>201807222004453_Edited_TotalCharge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

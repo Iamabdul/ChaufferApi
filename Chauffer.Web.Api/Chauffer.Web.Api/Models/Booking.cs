@@ -17,5 +17,6 @@ namespace Chauffer.Web.Api.Models
         public JobType? JobType { get; set; }
         public string ExtraInformation { get; set; }
         public DateTime? CancelledDate { get; set; }
+        public decimal? TotalCharge { get; set; }
     }
 }

@@ -3,6 +3,7 @@
     public enum JobType
     {
         Standard,
+        AirportTranfser,
         AsDirected
     }
 }
