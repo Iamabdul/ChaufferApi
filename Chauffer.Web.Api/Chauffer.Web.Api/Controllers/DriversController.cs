@@ -28,9 +28,9 @@ namespace Chauffer.Web.Api.Controllers
         }
 
         [Route("ActiveInactive")]
-        public IQueryable<Driver> GetActiveInactiveDrivers(ActiveInactiveModel model)
+        public IQueryable<Driver> GetActiveInactiveDrivers([FromUri] bool isActive)
         {
-            return context.Dirvers.Where(d => d.IsActive == model.IsActive).OrderByDescending(dr => dr.LastBookingDate);
+            return context.Dirvers.Where(d => d.IsActive == isActive).OrderByDescending(dr => dr.LastBookingDate);
         }
     }
 }

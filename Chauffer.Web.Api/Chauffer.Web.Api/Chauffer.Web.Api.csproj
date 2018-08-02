@@ -18,7 +18,7 @@
     <AssemblyName>Chauffer.Web.Api</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -244,9 +244,9 @@
     <Compile Include="Commands\EditDriverCommand.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DriversController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Exceptions\CustomExceptions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -296,12 +296,12 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ActiveInactiveModel.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\BookingBindingModel.cs" />
     <Compile Include="Models\CarType.cs" />
     <Compile Include="Models\Charge.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerBindingModel.cs" />
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobType.cs" />
@@ -481,7 +481,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55607</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55607/</IISUrl>
+          <IISUrl>http://dev.ChaufferApi</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

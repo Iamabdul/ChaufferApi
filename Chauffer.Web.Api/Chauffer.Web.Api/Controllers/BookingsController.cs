@@ -5,6 +5,7 @@ using System.Web.Http;
 
 namespace Chauffer.Web.Api.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/Bookings")]
     public class BookingsController : ApiController
     {
@@ -22,10 +23,10 @@ namespace Chauffer.Web.Api.Controllers
             return context.Bookings.OrderByDescending(b => b.StartDate);
         }
 
-        [Route("ActiveInactive")]
-        public IQueryable<Booking> GetActiveInactiveDrivers(ActiveInactiveModel model)
+        public IQueryable<Booking> GetActiveInactiveBookings([FromUri] bool isActive)
         {
-            return context.Bookings.Where(d => (model.IsActive == true ? d.CancelledDate == null : d.CancelledDate != null)).OrderByDescending(dr => dr.StartDate);
+            return context.Bookings.Where(d => (isActive == true ? d.CancelledDate == null : d.CancelledDate != null)).OrderByDescending(dr => dr.StartDate);
         }
+
     }
 }

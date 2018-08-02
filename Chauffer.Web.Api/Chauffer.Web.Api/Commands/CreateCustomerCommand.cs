@@ -12,7 +12,7 @@ namespace Chauffer.Web.Api.Commands
             this.context = context;
         }
 
-        public async Task Execute(RegisterBindingModel model)
+        public async Task Execute(CustomerBindingModel model)
         {
             var newCustomer = new Customer
             {
@@ -34,6 +34,6 @@ namespace Chauffer.Web.Api.Commands
 
     public interface ICreateCustomerCommand
     {
-        Task Execute(RegisterBindingModel user);
+        Task Execute(CustomerBindingModel user);
     }
 }
