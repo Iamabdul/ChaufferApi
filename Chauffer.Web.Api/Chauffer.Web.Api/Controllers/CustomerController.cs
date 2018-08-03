@@ -19,8 +19,6 @@ namespace Chauffer.Web.Api.Controllers
             this.createCustomerCommand = createCustomerCommand;
         }
 
-        // POST api/Account/Register
-        [AllowAnonymous]
         [Route("Create")]
         [HttpPost]
         public async Task<IHttpActionResult> Register(CustomerBindingModel model)
