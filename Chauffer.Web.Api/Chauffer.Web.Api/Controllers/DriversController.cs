@@ -1,10 +1,7 @@
 ﻿using Chauffer.Web.Api.Commands;
 using Chauffer.Web.Api.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Chauffer.Web.Api.Controllers
@@ -31,6 +28,19 @@ namespace Chauffer.Web.Api.Controllers
         public IQueryable<Driver> GetActiveInactiveDrivers([FromUri] bool isActive)
         {
             return context.Dirvers.Where(d => d.IsActive == isActive).OrderByDescending(dr => dr.LastBookingDate);
+        }
+
+        [Route("Create")]
+        [HttpPost]
+        public async Task<IHttpActionResult> Register(Driver model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await createDriverCommand.Execute(model);
+
+            return Ok();
         }
     }
 }

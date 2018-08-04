@@ -26,7 +26,7 @@ namespace Chauffer.Web.Api.Tests.Commands
         [Fact]
         public async Task CanCreateDriver()
         {
-            await sut.Execute(CommonDataSet.commonDriver);
+            await sut.Execute(CommonDataSet.CommonDriver);
             Assert.Equal(1, context.Object.Dirvers.Local.Count);
             context.Verify(x => x.SaveChangesAsync(), Times.Once());
         }

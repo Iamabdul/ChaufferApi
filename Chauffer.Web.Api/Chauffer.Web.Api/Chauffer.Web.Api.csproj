@@ -244,13 +244,14 @@
     <Compile Include="Commands\EditDriverCommand.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DriversController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Exceptions\CustomExceptions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ChargeExtensions.cs" />
     <Compile Include="Managers\ApplicationUserManager.cs" />
     <Compile Include="Managers\EnhancedApplicationUserManager.cs" />
     <Compile Include="Migrations\201806301107539_InitialCreate.cs" />
@@ -293,15 +294,23 @@
     <Compile Include="Migrations\201807222004453_Edited_TotalCharge.Designer.cs">
       <DependentUpon>201807222004453_Edited_TotalCharge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808041213194_Added_Date.cs" />
+    <Compile Include="Migrations\201808041213194_Added_Date.Designer.cs">
+      <DependentUpon>201808041213194_Added_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808041759155_Edited.cs" />
+    <Compile Include="Migrations\201808041759155_Edited.Designer.cs">
+      <DependentUpon>201808041759155_Edited.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\BindingModels\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
-    <Compile Include="Models\BookingBindingModel.cs" />
+    <Compile Include="Models\BindingModels\BookingBindingModel.cs" />
     <Compile Include="Models\CarType.cs" />
     <Compile Include="Models\Charge.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\CustomerBindingModel.cs" />
+    <Compile Include="Models\BindingModels\CustomerBindingModel.cs" />
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobType.cs" />
@@ -454,6 +463,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807222004453_Edited_TotalCharge.resx">
       <DependentUpon>201807222004453_Edited_TotalCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808041213194_Added_Date.resx">
+      <DependentUpon>201808041213194_Added_Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808041759155_Edited.resx">
+      <DependentUpon>201808041759155_Edited.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

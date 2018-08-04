@@ -15,7 +15,7 @@ namespace Chauffer.Web.Api.Tests.Commands
 
         public CreateStopCommandTests()
         {
-            bookingsSet.Add(CommonDataSet.commonBooking);
+            bookingsSet.Add(CommonDataSet.CommonBooking);
             context.Setup(c => c.Stops).Returns(stopsSet);
             context.Setup(c => c.Bookings).Returns(bookingsSet);
             sut = new CreateStopCommand(context.Object);
@@ -24,7 +24,7 @@ namespace Chauffer.Web.Api.Tests.Commands
         [Fact]
         public async Task CanCreateDriver()
         {
-            await sut.Execute(CommonDataSet.stopBindingModel);
+            await sut.Execute(CommonDataSet.StopBindingModel);
             Assert.Single(context.Object.Stops);
             context.Verify(x => x.SaveChangesAsync(), Times.Once());
         }

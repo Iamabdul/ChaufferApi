@@ -22,7 +22,7 @@ namespace Chauffer.Web.Api.Tests.Commands
         [Fact]
         public async Task CanCreateCustomer()
         {
-            await sut.Execute(CommonDataSet.registerBindingModel);
+            await sut.Execute(CommonDataSet.CustomerBindingModel);
             Assert.Equal(1, context.Object.Customers.Local.Count);
             context.Verify(x => x.SaveChangesAsync(), Times.Once());
         }

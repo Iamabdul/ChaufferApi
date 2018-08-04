@@ -1,4 +1,5 @@
 ﻿using Chauffer.Web.Api.Exceptions;
+using Chauffer.Web.Api.Helpers;
 using Chauffer.Web.Api.Models;
 using System;
 using System.Linq;
@@ -17,9 +18,12 @@ namespace Chauffer.Web.Api.Commands
         public async Task Execute(StopBindingModel model)
         {
             var booking = context.Bookings.FirstOrDefault(b => b.BookingId == model.BookingId);
-
             if (booking == null)
-                throw new BookingNotFoundException();
+                throw new BookingNotFoundException("Booking Not Found");
+
+            var driver = context.Dirvers.FirstOrDefault(d => d.DriverId == booking.DriverId);
+            if (driver == null)
+                throw new DriverNotFoundException("Driver Not Found");
 
             var newStop = new Stop
             {
@@ -27,7 +31,9 @@ namespace Chauffer.Web.Api.Commands
                 BookingId = booking.BookingId,
                 Address = model.Address,
                 PostCode = model.PostCode,
-                Reason = model.Reason
+                Reason = model.Reason,
+                Date = model?.Date ?? DateTime.UtcNow.AddHours(1),
+                Charge = model.Reason.ToStopCharge(driver.CarType, booking.JobType)
             };
 
             context.Stops.Add(newStop);

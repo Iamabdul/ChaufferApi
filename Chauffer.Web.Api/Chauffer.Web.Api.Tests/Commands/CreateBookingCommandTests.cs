@@ -21,7 +21,7 @@ namespace Chauffer.Web.Api.Tests.Commands
         [Fact]
         public async Task CanCreateDriver()
         {
-            await sut.Execute(CommonDataSet.bookingBindingModel);
+            await sut.Execute(CommonDataSet.BookingBindingModel);
             Assert.Equal(1, context.Object.Bookings.Local.Count);
             context.Verify(x => x.SaveChangesAsync(), Times.Once());
         }

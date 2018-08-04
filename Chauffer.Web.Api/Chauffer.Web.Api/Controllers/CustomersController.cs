@@ -1,22 +1,34 @@
 ﻿using Chauffer.Web.Api.Commands;
 using Chauffer.Web.Api.Models;
 using Microsoft.AspNet.Identity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Chauffer.Web.Api.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Customers")]
-    public class CustomerController : ApiController
+    public class CustomersController : ApiController
     {
         IChaufferDbContext context;
         ICreateCustomerCommand createCustomerCommand;
 
-        public CustomerController(ICreateCustomerCommand createCustomerCommand, IChaufferDbContext context)
+        public CustomersController(ICreateCustomerCommand createCustomerCommand, IChaufferDbContext context)
         {
             this.context = context;
             this.createCustomerCommand = createCustomerCommand;
+        }
+
+        public IQueryable<Customer> GetAllCustomers()
+        {
+            return context.Customers.OrderByDescending(b => b.FirstName);
+        }
+
+        public IQueryable<Customer> GetCustomers([FromUri] string searchTerm)
+        {
+            return context.Customers
+                .Where(c => c.FirstName.Contains(searchTerm) || c.LastName.Contains(searchTerm))
+                .OrderByDescending(c => c.FirstName);
         }
 
         [Route("Create")]

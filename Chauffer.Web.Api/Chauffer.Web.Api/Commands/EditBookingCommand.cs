@@ -26,7 +26,7 @@ namespace Chauffer.Web.Api.Commands
             currentBooking.EndAddress = model.EndAddress;
             currentBooking.EndPostCode = model.EndPostCode;
             currentBooking.CompletedDate = model.CompletedDate ?? null;
-            currentBooking.JobType = model.JobType ?? null;
+            currentBooking.JobType = model.JobType;
             currentBooking.ExtraInformation = model.ExtraInformation;
 
             context.SaveChanges();

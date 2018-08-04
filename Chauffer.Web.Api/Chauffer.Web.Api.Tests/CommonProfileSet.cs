@@ -5,10 +5,9 @@ namespace Chauffer.Web.Api.Tests
 {
     public static class CommonDataSet
     {
-        public static RegisterBindingModel registerBindingModel { get; } = new RegisterBindingModel
+        public static RegisterBindingModel RegisterBindingModel { get; } = new RegisterBindingModel
         {
-            PreferredDriverUserId = "preferredDriverUserID",
-            PhoneNumber = new PhoneNumber { },
+            PhoneNumber = "USERPhoneNumber",
             Address = "22 Address to success",
             Password = "password" ,
             ConfirmPassword = "password",
@@ -20,7 +19,7 @@ namespace Chauffer.Web.Api.Tests
             Email = "email@email.email"
         };
 
-        public static Driver commonDriver { get; } = new Driver
+        public static Driver CommonDriver { get; } = new Driver
         {
             DriverId = "DriverID",
             FirstName = "DriverFirstName",
@@ -38,7 +37,7 @@ namespace Chauffer.Web.Api.Tests
             IsActive = true
         };
 
-        public static Booking commonBooking { get; } = new Booking
+        public static Booking CommonBooking { get; } = new Booking
         {
             BookingId = "NewBookingID",
             CustomerId = "NewBookingCustomerID",
@@ -52,7 +51,7 @@ namespace Chauffer.Web.Api.Tests
             JobType = JobType.AsDirected,
             ExtraInformation = "NewBookingExtraInformation"
         };
-        public static BookingBindingModel bookingBindingModel { get; } = new BookingBindingModel
+        public static BookingBindingModel BookingBindingModel { get; } = new BookingBindingModel
         {
             BookingId = "NewBookingID",
             CustomerId = "NewBookingCustomerID",
@@ -67,12 +66,25 @@ namespace Chauffer.Web.Api.Tests
             ExtraInformation = "NewBookingExtraInformation"
         };
 
-        public static StopBindingModel stopBindingModel { get; } = new StopBindingModel
+        public static StopBindingModel StopBindingModel { get; } = new StopBindingModel
         {
             Address = "NewStopAddress",
             BookingId = "NewBookingID",
             PostCode = "NewStopAddress",
             Reason = StopReason.Standard
+        };
+
+        public static CustomerBindingModel CustomerBindingModel { get; } = new CustomerBindingModel
+        {
+            PreferredDriverUserId = "preferredDriverUserID",
+            PhoneNumber = new PhoneNumber { },
+            Address = "22 Address to success",
+            FirstName = "BEEKO",
+            LastName = "TEEKO",
+            PreferredName = "WhatsmyNICKNAME",
+            PostCode = "123rdf",
+            ExtraInformation = "extra info",
+            Email = "email@email.email"
         };
     }
 }
