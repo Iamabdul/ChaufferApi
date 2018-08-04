@@ -302,6 +302,10 @@
     <Compile Include="Migrations\201808041759155_Edited.Designer.cs">
       <DependentUpon>201808041759155_Edited.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808041813215_Added_Email.cs" />
+    <Compile Include="Migrations\201808041813215_Added_Email.Designer.cs">
+      <DependentUpon>201808041813215_Added_Email.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BindingModels\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -469,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808041759155_Edited.resx">
       <DependentUpon>201808041759155_Edited.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808041813215_Added_Email.resx">
+      <DependentUpon>201808041813215_Added_Email.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

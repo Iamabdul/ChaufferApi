@@ -11,5 +11,6 @@
         public string PostCode { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
         public string ExtraInformation { get; set; }
+        public string Email { get; set; }
     }
 }

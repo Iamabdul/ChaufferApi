@@ -12,12 +12,15 @@ namespace Chauffer.Web.Api.Tests.Commands
         private readonly Mock<IChaufferDbContext> context = new Mock<IChaufferDbContext>();
         private TestDbSet<Stop> stopsSet = new TestDbSet<Stop>();
         private TestDbSet<Booking> bookingsSet = new TestDbSet<Booking>();
+        private TestDbSet<Driver> driversSet = new TestDbSet<Driver>();
 
         public CreateStopCommandTests()
         {
             bookingsSet.Add(CommonDataSet.CommonBooking);
+            driversSet.Add(CommonDataSet.CommonDriver);
             context.Setup(c => c.Stops).Returns(stopsSet);
             context.Setup(c => c.Bookings).Returns(bookingsSet);
+            context.Setup(c => c.Dirvers).Returns(driversSet);
             sut = new CreateStopCommand(context.Object);
         }
 

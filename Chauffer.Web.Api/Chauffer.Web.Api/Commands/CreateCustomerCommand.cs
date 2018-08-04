@@ -24,7 +24,8 @@ namespace Chauffer.Web.Api.Commands
                 PreferredName = model.PreferredName,
                 PhoneNumber = model.PhoneNumber,
                 PreferredDriverUserId = model.PreferredDriverUserId,
-                ExtraInformation = model.ExtraInformation
+                ExtraInformation = model.ExtraInformation,
+                Email = model.Email
             };
 
             context.Customers.Add(newCustomer);

@@ -19,6 +19,20 @@ namespace Chauffer.Web.Api.Tests
             Email = "email@email.email"
         };
 
+        public static Customer CommonCustomer { get; } = new Customer
+        {
+            PhoneNumber = new PhoneNumber
+            {
+            },
+            Address = "22 Address to success",
+            FirstName = "BEEKO",
+            LastName = "TEEKO",
+            PreferredName = "WhatsmyNICKNAME",
+            PostCode = "123rdf",
+            ExtraInformation = "extra info",
+            Email = "email@email.email"
+        };
+
         public static Driver CommonDriver { get; } = new Driver
         {
             DriverId = "DriverID",
@@ -40,8 +54,8 @@ namespace Chauffer.Web.Api.Tests
         public static Booking CommonBooking { get; } = new Booking
         {
             BookingId = "NewBookingID",
-            CustomerId = "NewBookingCustomerID",
-            DriverId = "NewBookingDriverID",
+            CustomerId = CommonCustomer.CustomerId,
+            DriverId = CommonDriver.DriverId,
             CreatedDate = DateTime.UtcNow,
             StartAddress = "NewBookingStartAddress",
             StartPostCode = "NewBookingStartPostCode",
@@ -55,7 +69,7 @@ namespace Chauffer.Web.Api.Tests
         {
             BookingId = "NewBookingID",
             CustomerId = "NewBookingCustomerID",
-            DriverId = "NewBookingDriverID",
+            DriverId = CommonDriver.DriverId,
             CreatedDate = DateTime.UtcNow,
             StartAddress = "NewBookingStartAddress",
             StartPostCode = "NewBookingStartPostCode",
@@ -69,7 +83,7 @@ namespace Chauffer.Web.Api.Tests
         public static StopBindingModel StopBindingModel { get; } = new StopBindingModel
         {
             Address = "NewStopAddress",
-            BookingId = "NewBookingID",
+            BookingId = CommonBooking.BookingId,
             PostCode = "NewStopAddress",
             Reason = StopReason.Standard
         };
