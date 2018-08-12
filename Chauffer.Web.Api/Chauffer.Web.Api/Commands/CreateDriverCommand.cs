@@ -1,5 +1,7 @@
-﻿using Chauffer.Web.Api.Models;
+﻿using Chauffer.Web.Api.Exceptions;
+using Chauffer.Web.Api.Models;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Chauffer.Web.Api.Commands
@@ -14,6 +16,10 @@ namespace Chauffer.Web.Api.Commands
 
         public async Task<Driver> Execute(Driver model)
         {
+            var existingDriver = context.Dirvers.FirstOrDefault(d => d.LicenceNumber == model.LicenceNumber);
+            if (existingDriver != null)
+                throw new DuplicateDriverException("Driver already exists");
+
             var newDriver = new Driver
             {
                 DriverId = Guid.NewGuid().ToString(),

@@ -52,4 +52,21 @@ namespace Chauffer.Web.Api.Exceptions
         {
         }
     }
+
+    public class DuplicateDriverException : Exception
+    {
+        public DuplicateDriverException()
+        {
+        }
+
+        public DuplicateDriverException(string message)
+        : base(message)
+        {
+        }
+
+        public DuplicateDriverException(string message, Exception inner)
+        : base(message, inner)
+        {
+        }
+    }
 }
